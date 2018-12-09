@@ -211,13 +211,16 @@ Following are violin plots that show attrition
 2. Monthly income and Job level.
 
 ```{r}
-#GG violin between monthly income, and attrition
+#GG histogram/density between monthly income, and attrition
 
-gg3 <- ggplot(dfTrain,aes(Attrition,MonthlyIncome, fill=Attrition, color=Attrition))+
-   geom_violin()+ 
-     labs(subtitle="fig5:Attrition and Monthly Income",
-       y="Attrition",       x="MonthlyIncome",
-       title="Violin")
+gg3 <- ggplot(dfTrain, aes(x=MonthlyIncome, fill = Attrition)) +
+  geom_histogram(binwidth = 500, aes(y=..density..)) +
+  geom_density(alpha=.2,fill="#FF6666") +
+  labs(title="fig5:MonthlyIncome and Attrition",
+       y="Density",
+       x="MonthlyIncome",
+       subtitle="Histogram / Density") 
+
 plot(gg3)
 
 #scatter plot between monthly income, JobLevel and attrition
