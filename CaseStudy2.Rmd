@@ -66,7 +66,7 @@ training <- read.csv("DataFiles/CaseStudy2-data.csv")
 # Split training and test sets for our analysis and model
 samplesize_attrition = nrow(training)
 
-train_perc = .75
+train_perc = .70
 train_indices = sample(seq(1,samplesize_attrition,length = samplesize_attrition),train_perc*samplesize_attrition)
 dfTrain = training[train_indices,]
 dfVal  = training[-train_indices,]
@@ -92,7 +92,7 @@ dfTrain$StandardHours <- NULL
 dfTrain$EmployeeNumber <- NULL
 dfTrain$Rand <- NULL
 
-# Convert foloowing columns as factors
+# Convert following columns as factors
 dfTrain$Education <- as.factor(dfTrain$Education)
 dfTrain$EnvironmentSatisfaction <- as.factor(dfTrain$EnvironmentSatisfaction)
 dfTrain$JobInvolvement <- as.factor(dfTrain$JobInvolvement)
